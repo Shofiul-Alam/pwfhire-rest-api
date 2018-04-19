@@ -1,0 +1,29 @@
+admin_setting_add_skillCompetency:
+    path: /add-skill-competency
+    defaults: {_controller: "AppBundle:Admin/Setting:addSkillCompetency"}
+    methods: POST
+
+admin_setting_edit_skillCompetency:
+    path: /edit-skill-competency
+    defaults: {_controller: "AppBundle:Admin/Setting:editSkillCompetency"}
+    methods: POST
+admin_setting_skillCompetency_list:
+    path: /skill-competency-list
+    defaults: {_controller: "AppBundle:Admin/Setting:skillCompetencylist"}
+    methods: POST
+admin_setting_add_job:
+    path: /add-job
+    defaults: {_controller: "AppBundle:Admin/Setting:createJob"}
+    methods: POST
+admin_setting_all_job:
+    path: /job-list
+    defaults: {_controller: "AppBundle:Admin/Setting:jobList"}
+    methods: POST
+admin_setting_edit_job:
+    path: /edit-job
+    defaults: {_controller: "AppBundle:Admin/Setting:editJob"}
+    methods: POST
+admin_setting_delete_job:
+    path: /delete-job
+    defaults: {_controller: "AppBundle:Admin/Setting:deleteJob"}
+    methods: POST

@@ -1,0 +1,19 @@
+manage_job_add:
+    path: /add
+    defaults: {_controller: "AppBundle:Admin/ManageJob:new"}
+    methods: POST
+
+manage_job_list:
+    path: /list
+    defaults: {_controller: "AppBundle:Admin/ManageJob:list"}
+    methods: POST
+
+manage_job_edit:
+    path: /edit
+    defaults: {_controller: "AppBundle:Admin/ManageJob:edit"}
+    methods: POST
+
+manage_job_archive:
+    path: /archive-job
+    defaults: {_controller: "AppBundle:Admin/ManageJob:archiveJob"}
+    methods: POST

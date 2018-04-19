@@ -1,0 +1,69 @@
+BackendBundle\Entity\EmployeeInduction:
+    type: entity
+    table: employee_induction
+    indexes:
+        fk_employee_inductions_employee_skill_document1_idx:
+            columns:
+                - employee_skill_document_id
+        fk_employee_inductions_induction1_idx:
+            columns:
+                - induction_id
+        fk_employee_inductions_employee1_idx:
+            columns:
+                - employee_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        description:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+        uploadedDate:
+            type: datetime
+            nullable: true
+            column: uploaded_date
+        modifiedDate:
+            type: datetime
+            nullable: true
+            column: modified_date
+    manyToOne:
+        employee:
+            targetEntity: Employee
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                employee_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        employeeSkillDocument:
+            targetEntity: EmployeeSkillDocument
+            cascade: ["persist"]
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                employee_skill_document_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        induction:
+            targetEntity: Induction
+            cascade: ["persist"]
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                induction_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

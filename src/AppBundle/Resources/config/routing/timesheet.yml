@@ -1,0 +1,16 @@
+employee_timesheet_add:
+    path: /add
+    defaults: {_controller: "AppBundle:Staff/TimeSheet:uploadTimeSheet"}
+    methods: POST
+employee_timesheet_edit:
+    path: /edit
+    defaults: {_controller: "AppBundle:Staff/TimeSheet:updateTimeSheet"}
+    methods: POST
+employee_timesheet_delete:
+    path: /archive
+    defaults: {_controller: "AppBundle:Staff/TimeSheet:archiveTimeSheet"}
+    methods: POST
+employee_timesheet_employee:
+    path: /list
+    defaults: {_controller: "AppBundle:Staff/TimeSheet:allTimeSheet"}
+    methods: POST

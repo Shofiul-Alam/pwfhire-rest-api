@@ -1,0 +1,20 @@
+manage_allocations_list:
+    path: /list
+    defaults: {_controller: "AppBundle:Admin/ManageAllocation:list"}
+    methods: POST
+manage_send_allocations:
+    path: /send-allocations
+    defaults: {_controller: "AppBundle:Admin/ManageAllocation:sendAllocations"}
+    methods: POST
+manage_get_allocations:
+    path: /task-allocations
+    defaults: {_controller: "AppBundle:Admin/ManageAllocation:getAllocationsForTask"}
+    methods: POST
+manage_get_employees_for_allocations:
+    path: /employees-for-allocations
+    defaults: {_controller: "AppBundle:Admin/ManageAllocation:getEmployeesForAllocation"}
+    methods: POST
+manage_find_employees_docs_booked_date:
+    path: /doc_with_booked_in_dates
+    defaults: {_controller: "AppBundle:Admin/ManageAllocation:findEmployeeBookDateDoc"}
+    methods: POST

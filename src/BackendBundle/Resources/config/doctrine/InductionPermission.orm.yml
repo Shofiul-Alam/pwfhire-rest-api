@@ -1,0 +1,41 @@
+BackendBundle\Entity\InductionPermission:
+    type: entity
+    table: induction_permission
+    indexes:
+        fk_induction_permission_employee1_idx:
+            columns:
+                - employee_id
+        fk_induction_permission_induction1_idx:
+            columns:
+                - induction_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        employee:
+            targetEntity: Employee
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                employee_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        induction:
+            targetEntity: Induction
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                induction_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,22 @@
+manage_client_add:
+    path: /add
+    defaults: {_controller: "AppBundle:Admin/ManageClient:new"}
+    methods: POST
+
+manage_client_list:
+    path: /list
+    defaults: {_controller: "AppBundle:Admin/ManageClient:list"}
+    methods: POST
+
+manage_client_edit:
+    path: /edit
+    defaults: {_controller: "AppBundle:Admin/ManageClient:edit"}
+    methods: POST
+manage_client_contacts:
+    path: /contacts
+    defaults: {_controller: "AppBundle:Admin/ManageClient:clientContacts"}
+    methods: POST
+manage_archive_client:
+    path: /archive-client
+    defaults: {_controller: "AppBundle:Admin/ManageClient:archiveClient"}
+    methods: POST

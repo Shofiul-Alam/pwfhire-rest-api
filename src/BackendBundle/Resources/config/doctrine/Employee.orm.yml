@@ -1,0 +1,160 @@
+BackendBundle\Entity\Employee:
+    type: entity
+    table: employee
+    indexes:
+        fk_employee_user1_idx:
+            columns:
+                - user_id
+        fk_employee_employee_order_category1_idx:
+            columns:
+                - employee_order_category_id
+        fk_employee_employee_category1_idx:
+            columns:
+                - employee_category_id
+        fk_employee_employee_white_card1_idx:
+            columns:
+                - employee_white_card_id
+        fk_employee_employee_id_card1_idx:
+            columns:
+                - employee_id_card_id
+        fk_employee_employee_visa1_idx:
+            columns:
+                - employee_visa_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        dob:
+            type: datetime
+            nullable: true
+        address:
+            type: string
+            nullable: true
+            length: 300
+            options:
+                fixed: false
+        nationality:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        emergencyContactName:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+            column: emergency_contact_name
+        emergencyContactMobile:
+            type: string
+            nullable: true
+            length: 300
+            options:
+                fixed: false
+            column: emergency_contact_mobile
+        bankName:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: bank_name
+        bankBsb:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+            column: bank_bsb
+        bankAccountNo:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: bank_account_no
+        tfnNo:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: tfn_no
+        abnNo:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: abn_no
+        superannuationName:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: superannuation_name
+        superannuationNo:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: superannuation_no
+        approved:
+            type: boolean
+            nullable: true
+        archived:
+            type: boolean
+            nullable: true
+        lattitude:
+            type: float
+            nullable: true
+        longitude:
+            type: float
+            nullable: true
+    manyToOne:
+        employeeCategory:
+            targetEntity: EmployeeCategory
+            cascade: {}
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                employee_category_id:
+                    referencedColumnName: id
+            orphanRemoval: true
+        employeeOrderCategory:
+            targetEntity: EmployeeOrderCategory
+            cascade: ["persist"]
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                employee_order_category_id:
+                    referencedColumnName: id
+                    onDelete: SET NULL
+            orphanRemoval: false
+    oneToOne:
+        user:
+            targetEntity: User
+            cascade: ["persist"]
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        userDeclearation:
+            targetEntity: UserDeclearation
+            mappedBy: employee
+            cascade: ["persist"]
+    lifecycleCallbacks: {  }

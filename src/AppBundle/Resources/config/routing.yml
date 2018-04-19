@@ -1,0 +1,94 @@
+app_default:
+    resource: '@AppBundle/Resources/config/routing/default.yml'
+    prefix: /
+
+app_user:
+    resource: '@AppBundle/Resources/config/routing/user.yml'
+    prefix: /user
+
+app_task:
+    resource: '@AppBundle/Resources/config/routing/task.yml'
+    prefix: /task
+
+app_employeeCategory:
+    resource: '@AppBundle/Resources/config/routing/employeeCategory.yml'
+    prefix: /employee-category
+
+app_employeeOrderCategory:
+    resource: '@AppBundle/Resources/config/routing/employeeOrderCategory.yml'
+    prefix: /employee-order-category
+
+app_employee:
+    resource: '@AppBundle/Resources/config/routing/employee.yml'
+    prefix: /employee
+app_allocations:
+    resource: '@AppBundle/Resources/config/routing/allocation.yml'
+    prefix: /employee-allocations
+
+app_client:
+    resource: '@AppBundle/Resources/config/routing/client.yml'
+    prefix: /client
+
+app_project:
+    resource: '@AppBundle/Resources/config/routing/project.yml'
+    prefix: /project
+
+app_admin:
+    resource: '@AppBundle/Resources/config/routing/admin/admin.yml'
+    prefix: /admin
+
+app_admin_permissions:
+    resource: '@AppBundle/Resources/config/routing/admin/managePermission.yml'
+    prefix: /permissions
+
+app_admin_employee:
+    resource: '@AppBundle/Resources/config/routing/admin/manageEmployee.yml'
+    prefix: /manage-employee
+app_admin_client:
+    resource: '@AppBundle/Resources/config/routing/admin/manageClient.yml'
+    prefix: /manage-client
+app_admin_contact:
+    resource: '@AppBundle/Resources/config/routing/admin/manageContact.yml'
+    prefix: /manage-contact
+app_admin_project:
+    resource: '@AppBundle/Resources/config/routing/admin/manageProject.yml'
+    prefix: /manage-project
+app_admin_order:
+    resource: '@AppBundle/Resources/config/routing/admin/manageOrder.yml'
+    prefix: /manage-order
+app_admin_job:
+    resource: '@AppBundle/Resources/config/routing/admin/manageJob.yml'
+    prefix: /manage-job
+app_admin_task:
+    resource: '@AppBundle/Resources/config/routing/admin/manageTask.yml'
+    prefix: /manage-task
+app_admin_allocation:
+    resource: '@AppBundle/Resources/config/routing/admin/manageAllocation.yml'
+    prefix: /manage-allocation
+app_admin_inntegration:
+    resource: '@AppBundle/Resources/config/routing/admin/manageIntegration.yml'
+    prefix: /manage-integration
+app_admin_setting:
+    resource: '@AppBundle/Resources/config/routing/admin/setting.yml'
+    prefix: /setting
+app_admin_form:
+    resource: '@AppBundle/Resources/config/routing/admin/manageForm.yml'
+    prefix: /form
+app_admin_induction:
+    resource: '@AppBundle/Resources/config/routing/admin/manageInduction.yml'
+    prefix: /induction
+app_admin_timesheet:
+    resource: '@AppBundle/Resources/config/routing/admin/manageTimesheet.yml'
+    prefix: /manage-timesheet
+
+
+app_employee_induction:
+    resource: '@AppBundle/Resources/config/routing/induction.yml'
+    prefix: /employee-induction
+app_employee_skill_competency_doc:
+    resource: '@AppBundle/Resources/config/routing/employeeSkillCompetencyDocument.yml'
+    prefix: /employee-skill
+app_employee_timesheet:
+    resource: '@AppBundle/Resources/config/routing/timesheet.yml'
+    prefix: /employee-timesheet
+

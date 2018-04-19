@@ -1,0 +1,28 @@
+manage_induction_add:
+    path: /add
+    defaults: {_controller: "AppBundle:Admin/ManageInduction:new"}
+    methods: POST
+
+manage_induction_list:
+    path: /list
+    defaults: {_controller: "AppBundle:Admin/ManageInduction:list"}
+    methods: POST
+
+manage_induction_edit:
+    path: /edit
+    defaults: {_controller: "AppBundle:Admin/ManageInduction:edit"}
+    methods: POST
+manage_all_submitted_induction:
+    path: /sumitted-inductions
+    defaults: {_controller: "AppBundle:Admin/ManageInduction:getAllSubmittedInductions"}
+    methods: POST
+manage_save_induction:
+    path: /save-data
+    defaults: {_controller: "AppBundle:Admin/ManageInduction:saveInductionData"}
+    methods: POST
+manage_allowed_inductions:
+    path: /allowed-inductions
+    defaults: {_controller: "AppBundle:Admin/ManageInduction:getAllowedInductionForEmployee"}
+    methods: POST
+
+

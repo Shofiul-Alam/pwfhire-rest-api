@@ -1,0 +1,56 @@
+BackendBundle\Entity\UserFormData:
+    type: entity
+    table: user_form_data
+    indexes:
+        fk_user_form_data_form1_idx:
+            columns:
+                - form_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        value:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        valueArrId:
+            type: integer
+            nullable: false
+            length: 11
+            options:
+                fixed: false
+            column: valueArr_id
+        fieldId:
+            type: integer
+            nullable: false
+            length: 11
+            options:
+                fixed: false
+            column: field_id
+    manyToOne:
+        form:
+            targetEntity: Form
+            cascade: {  }
+            fetch: EAGER
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                form_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        users:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: userFormDatas
+    lifecycleCallbacks: {  }
+

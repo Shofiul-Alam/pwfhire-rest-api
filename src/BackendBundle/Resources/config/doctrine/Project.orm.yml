@@ -1,0 +1,98 @@
+BackendBundle\Entity\Project:
+    type: entity
+    table: project
+    repositoryClass: BackendBundle\Repository\ProjectRepository
+    indexes:
+        fk_project_client1_idx:
+            columns:
+                - client_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        projectName:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: project_name
+        projectAddress:
+            type: string
+            nullable: true
+            length: 300
+            options:
+                fixed: false
+            column: project_address
+        projectRatesRules:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: project_rates_rules
+        projectCreated:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: project_created
+        projectUpdated:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: project_updated
+        porjectUpdatedBy:
+            type: string
+            nullable: true
+            length: 150
+            options:
+                fixed: false
+            column: porject_updated_by
+        archived:
+            type: boolean
+            nullable: true
+            column: archived
+        lattitude:
+            type: float
+            nullable: true
+        longitude:
+            type: float
+            nullable: true
+    manyToOne:
+        client:
+            targetEntity: Client
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                client_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    oneToMany:
+        allocatedContact:
+            targetEntity: AllocatedContact
+            cascade: ["persist", "remove"]
+            mappedBy: project
+            fetch: EAGER;
+        allocatedSkillCompetency:
+            targetEntity: AllocatedSkillCompetency
+            cascade: ["persist", "remove"]
+            mappedBy: project
+            fetch: EAGER;
+        allocatedInduction:
+            targetEntity: AllocatedInduction
+            cascade: ["persist", "remove"]
+            mappedBy: project
+            fetch: EAGER;
+    lifecycleCallbacks: {  }

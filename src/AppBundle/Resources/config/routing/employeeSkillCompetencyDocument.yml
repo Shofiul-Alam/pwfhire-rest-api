@@ -1,0 +1,16 @@
+employee_skill_competency_doc_add:
+    path: /add-document
+    defaults: {_controller: "AppBundle:Staff/EmployeeSkillCompetencyDocument:addSkillCompetency"}
+    methods: POST
+employee_skill_competency_doc_edit:
+    path: /edit-document
+    defaults: {_controller: "AppBundle:Staff/EmployeeSkillCompetencyDocument:updateSkillCompetency"}
+    methods: POST
+employee_skill_competency_doc_delete:
+    path: /delete-document
+    defaults: {_controller: "AppBundle:Staff/EmployeeSkillCompetencyDocument:deleteSkillCompetency"}
+    methods: POST
+employee_skill_list_for_employee:
+    path: /list
+    defaults: {_controller: "AppBundle:Staff/EmployeeSkillCompetencyDocument:getSkillList"}
+    methods: POST

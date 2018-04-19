@@ -1,0 +1,47 @@
+BackendBundle\Entity\ValueArr:
+    type: entity
+    table: valueArr
+    indexes:
+        fk_valueArr_field1_idx:
+            columns:
+                - field_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        label:
+            type: string
+            nullable: true
+            length: 500
+            options:
+                fixed: false
+        value:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        selected:
+            type: boolean
+            nullable: true
+        correct:
+            type: boolean
+            nullable: true
+    manyToOne:
+        field:
+            targetEntity: Field
+            cascade: ["persist"]
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                field_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

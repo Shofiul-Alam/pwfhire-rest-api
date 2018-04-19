@@ -1,0 +1,43 @@
+BackendBundle\Entity\Tmpimage:
+    type: entity
+    table: tmpImage
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        ext:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        mime:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        size:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        path:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

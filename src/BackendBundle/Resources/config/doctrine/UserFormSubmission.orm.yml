@@ -1,0 +1,41 @@
+BackendBundle\Entity\UserFormSubmission:
+    type: entity
+    table: user_form_submission
+    indexes:
+        fk_userFormSubmission_form1_idx:
+            columns:
+                - form_id
+        fk_user_form_submission_employee1_idx:
+            columns:
+                - employee_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        form:
+            targetEntity: Form
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                form_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                employee_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,22 @@
+BackendBundle\Entity\TaskForm:
+    type: entity
+    table: task_form
+    id:
+        taskFormId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: task_form_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        taskId:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: task_id
+    lifecycleCallbacks: {  }

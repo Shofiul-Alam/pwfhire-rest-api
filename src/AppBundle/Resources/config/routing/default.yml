@@ -1,0 +1,27 @@
+default_index:
+  path: /
+  defaults: {_controller: "AppBundle:Staff/Default:index"}
+  methods: GET
+
+default_login:
+  path: /login
+  defaults: {_controller: "AppBundle:Staff/Default:login"}
+  methods: POST
+
+default_api:
+  path: /api
+  defaults: {_controller: "AppBundle:Staff/Default:api"}
+  methods: GET
+
+default_token:
+  path: /token
+  defaults: {_controller: "AppBundle:Staff/Default:token"}
+  methods: POST
+
+default_upload:
+  path: /upload
+  defaults: {_controller: "AppBundle:Staff/Default:upload"}
+  methods: POST
+
+
+

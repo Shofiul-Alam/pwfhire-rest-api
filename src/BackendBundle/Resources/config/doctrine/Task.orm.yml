@@ -1,0 +1,91 @@
+BackendBundle\Entity\Task:
+    type: entity
+    table: task
+    repositoryClass: BackendBundle\Repository\TaskRepository
+    indexes:
+        fk_task_order1_idx:
+            columns:
+                - order_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        taskName:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: task_name
+        chargeRate:
+            type: float
+            nullable: true
+            column: chargeRage
+        payRate:
+            type: float
+            nullable: true
+            column: payRate
+        numberOfEmployees:
+            type: integer
+            nullable: true
+            length: 11
+            column: numberOfEmployees
+        startDate:
+            type: datetime
+            nullable: true
+            column: start_date
+        endDate:
+            type: datetime
+            nullable: true
+            column: end_date
+        startTime:
+            type: time
+            nullable: true
+            options:
+                unsigned: false
+            column: start_time
+        endTime:
+            type: time
+            nullable: true
+            options:
+                unsigned: false
+            column: end_time
+        archived:
+            type: boolean
+            nullable: true
+    manyToOne:
+        order:
+            targetEntity: Order
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                client_order_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        job:
+            targetEntity: Job
+            cascade: ["persist"]
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: task
+            joinTable:
+                name: task_has_job
+                joinColumns:
+                    -
+                        name: task_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: job_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

@@ -1,0 +1,14 @@
+project_new:
+    path: /new
+    defaults: {_controller: "AppBundle:Staff/Project:new"}
+    methods: POST
+
+project_list:
+    path: /list
+    defaults: {_controller: "AppBundle:Staff/Project:list"}
+    methods: POST
+
+project_edit:
+    path: /edit
+    defaults: {_controller: "AppBundle:Staff/Project:edit"}
+    methods: POST

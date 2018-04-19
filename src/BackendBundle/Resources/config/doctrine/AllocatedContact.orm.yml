@@ -1,0 +1,67 @@
+BackendBundle\Entity\AllocatedContact:
+    type: entity
+    table: allocated_contact
+    indexes:
+        fk_allocated_contact_client1_idx:
+            columns:
+                - client_id
+        fk_allocated_contact_contact1_idx:
+            columns:
+                - contact_id
+        fk_allocated_contact_project1_idx:
+            columns:
+                - project_id
+        fk_allocated_contact_client_order1_idx:
+            columns:
+                - client_order_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        client:
+            targetEntity: Client
+            cascade: {  }
+            fetch: EAGER
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                client_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        contact:
+            targetEntity: Contact
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                contact_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        project:
+            targetEntity: Project
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                project_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        order:
+            targetEntity: Order
+            cascade: ["persist"]
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                client_order_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

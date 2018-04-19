@@ -1,0 +1,20 @@
+employee_allocations:
+    path: /all
+    defaults: {_controller: "AppBundle:Staff/Allocation:getEmployeeAllocations"}
+    methods: POST
+employee_pending_allocations:
+    path: /pending
+    defaults: {_controller: "AppBundle:Staff/Allocation:getEmployeePendingAllocations"}
+    methods: POST
+employee_accepted_allocations:
+    path: /accepted
+    defaults: {_controller: "AppBundle:Staff/Allocation:getEmployeeAcceptedAllocations"}
+    methods: POST
+employee_accept_allocation:
+    path: /accept-allocation
+    defaults: {_controller: "AppBundle:Staff/Allocation:acceptAllocation"}
+    methods: POST
+employee_deny_allocation:
+    path: /deny-allocation
+    defaults: {_controller: "AppBundle:Staff/Allocation:denyAllocation"}
+    methods: POST

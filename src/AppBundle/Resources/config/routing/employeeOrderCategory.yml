@@ -1,0 +1,19 @@
+employeeOrderCategory_new:
+    path: /new
+    defaults: {_controller: "AppBundle:Staff/EmployeeOrderCategroy:new"}
+    methods: POST
+
+employeeOrderCategory_list:
+    path: /list
+    defaults: {_controller: "AppBundle:Staff/EmployeeOrderCategroy:list"}
+    methods: POST
+
+employeeOrderCategory_edit:
+    path: /edit
+    defaults: {_controller: "AppBundle:Staff/EmployeeOrderCategroy:edit"}
+    methods: POST
+
+employeeOrderCategory_delete:
+    path: /delete
+    defaults: {_controller: "AppBundle:Staff/EmployeeOrderCategroy:delete"}
+    methods: POST

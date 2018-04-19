@@ -1,0 +1,20 @@
+employee_induction_form:
+    path: /all
+    defaults: {_controller: "AppBundle:Staff/Induction:getInduction"}
+    methods: POST
+employee_induction_save_data:
+    path: /save-data
+    defaults: {_controller: "AppBundle:Staff/Induction:saveInductionData"}
+    methods: POST
+employee_submitted_induction:
+    path: /submitted-inductions
+    defaults: {_controller: "AppBundle:Staff/Induction:getEmployeeSubmittedInductions"}
+    methods: POST
+employee_update_induction:
+    path: /update-data
+    defaults: {_controller: "AppBundle:Staff/Induction:updateInductionData"}
+    methods: POST
+employee_upload_induction:
+    path: /upload-induction
+    defaults: {_controller: "AppBundle:Staff/Induction:uploadEmployeeInduction"}
+    methods: POST

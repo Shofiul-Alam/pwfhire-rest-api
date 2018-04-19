@@ -1,0 +1,41 @@
+BackendBundle\Entity\AllocatedSkillCompetency:
+    type: entity
+    table: allocated_skill_competency
+    indexes:
+        fk_allocated_skill_competency_project1_idx:
+            columns:
+                - project_id
+        fk_allocated_skill_competency_skill_competency_list1_idx:
+            columns:
+                - skill_competency_list_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        project:
+            targetEntity: Project
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                project_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        skillCompetencyList:
+            targetEntity: SkillCompetencyList
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                skill_competency_list_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

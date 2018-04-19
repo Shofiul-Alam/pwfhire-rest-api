@@ -1,0 +1,20 @@
+manage_timesheet_list:
+    path: /list
+    defaults: {_controller: "AppBundle:Admin/ManageTimeSheet:list"}
+    methods: POST
+manage_timesheet_add:
+    path: /add
+    defaults: {_controller: "AppBundle:Admin/ManageTimeSheet:uploadTimeSheet"}
+    methods: POST
+manage_timesheet_edit:
+    path: /edit
+    defaults: {_controller: "AppBundle:Admin/ManageTimeSheet:updateTimeSheet"}
+    methods: POST
+manage_timesheet_delete:
+    path: /archive
+    defaults: {_controller: "AppBundle:Admin/ManageTimeSheet:archiveTimeSheet"}
+    methods: POST
+manage_timesheet_employee:
+    path: /list
+    defaults: {_controller: "AppBundle:Admin/ManageTimeSheet:allTimeSheet"}
+    methods: POST

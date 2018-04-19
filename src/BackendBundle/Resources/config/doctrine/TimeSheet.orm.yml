@@ -1,0 +1,95 @@
+BackendBundle\Entity\TimeSheet:
+    type: entity
+    table: time_sheet
+    indexes:
+        fk_time_sheet_employee1_idx:
+            columns:
+                - employee_id
+        fk_time_sheet_allocated_dates1_idx:
+            columns:
+                - allocated_dates_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        date:
+            type: datetime
+            nullable: true
+        startTime:
+            type: time
+            nullable: true
+            column: start_time
+        finishTime:
+            type: time
+            nullable: true
+            column: finish_time
+        break:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        hoursWorked:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: hours_worked
+        weekDay:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: week_day
+        workerTimesheetInstructions:
+            type: string
+            nullable: true
+            length: 500
+            options:
+                fixed: false
+            column: worker_timesheet_instructions
+        clientTimesheetInstruction:
+            type: string
+            nullable: true
+            length: 500
+            options:
+                fixed: false
+            column: client_timesheet_instruction
+        approved:
+            type: boolean
+            nullable: false
+    manyToOne:
+        allocatedDates:
+            targetEntity: AllocatedDates
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                allocated_dates_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        employee:
+            targetEntity: Employee
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                employee_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    oneToOne:
+        employeeTimesheetDocument:
+            targetEntity: EmployeeTimesheetDocument
+            mappedBy: timeSheet
+            cascade: ["persist"]
+    lifecycleCallbacks: {  }

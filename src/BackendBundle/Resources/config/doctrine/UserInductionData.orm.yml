@@ -1,0 +1,62 @@
+BackendBundle\Entity\UserInductionData:
+    type: entity
+    table: user_induction_data
+    indexes:
+        fk_user_induction_data_user1_idx:
+            columns:
+                - user_id
+        fk_user_induction_data_induction1_idx:
+            columns:
+                - induction_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        value:
+            type: string
+            nullable: true
+            length: 500
+            options:
+                fixed: false
+        fieldId:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: field_id
+        valuearrId:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: valueArr_id
+    manyToOne:
+        induction:
+            targetEntity: Induction
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                induction_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

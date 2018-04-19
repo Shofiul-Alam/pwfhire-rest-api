@@ -1,0 +1,4 @@
+manage_permission_employee_induction:
+    path: /induction-permission
+    defaults: {_controller: "AppBundle:Admin/ManagePermission:inductionPermission"}
+    methods: POST

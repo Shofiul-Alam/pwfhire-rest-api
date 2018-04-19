@@ -1,0 +1,26 @@
+manage_task_add:
+    path: /add
+    defaults: {_controller: "AppBundle:Admin/ManageTask:new"}
+    methods: POST
+
+manage_task_list:
+    path: /list
+    defaults: {_controller: "AppBundle:Admin/ManageTask:list"}
+    methods: POST
+
+manage_task_edit:
+    path: /edit
+    defaults: {_controller: "AppBundle:Admin/ManageTask:edit"}
+    methods: POST
+manage_get_order_task:
+    path: /order-tasks
+    defaults: {_controller: "AppBundle:Admin/ManageTask:getOrderTasks"}
+    methods: POST
+manage_task_employee_alloc:
+    path: /employees-for-alloction
+    defaults: {_controller: "AppBundle:Admin/ManageTask:getEmployeeForAllocation"}
+    methods: POST
+manage_archive_task:
+    path: /archive-task
+    defaults: {_controller: "AppBundle:Admin/ManageTask:archiveTask"}
+    methods: POST

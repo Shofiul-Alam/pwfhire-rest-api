@@ -1,0 +1,14 @@
+client_new:
+    path: /new
+    defaults: {_controller: "AppBundle:Staff/Client:new"}
+    methods: POST
+
+client_list:
+    path: /list
+    defaults: {_controller: "AppBundle:Staff/Client:list"}
+    methods: POST
+
+client_edit:
+    path: /edit
+    defaults: {_controller: "AppBundle:Staff/Client:edit"}
+    methods: POST

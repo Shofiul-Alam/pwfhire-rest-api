@@ -1,0 +1,90 @@
+BackendBundle\Entity\Order:
+    type: entity
+    table: client_order
+    repositoryClass: BackendBundle\Repository\OrderRepository
+    indexes:
+        fk_order_project1_idx:
+            columns:
+                - project_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        orderTitle:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: order_title
+        startDate:
+            type: datetime
+            nullable: true
+            column: start_date
+        endDate:
+            type: datetime
+            nullable: true
+            column: end_date
+        orderStatus:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: order_status
+        orderDescription:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: order_description
+        contactDetails:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: contact_details
+        comments:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        taskReferenceId:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: task_reference_id
+        archived:
+            type: boolean
+            nullable: true
+            column: archived
+    manyToOne:
+        project:
+            targetEntity: Project
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                project_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+
+    oneToMany:
+        allocatedContact:
+            targetEntity: AllocatedContact
+            cascade: ["persist", "remove"]
+            mappedBy: order
+            fetch: EAGER;
+    lifecycleCallbacks: {  }

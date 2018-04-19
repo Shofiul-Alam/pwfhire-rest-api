@@ -1,0 +1,18 @@
+admin_new:
+    path: /add
+    defaults: {_controller: "AppBundle:Admin/Management:new"}
+    methods: POST
+
+admin_list:
+    path: /list
+    defaults: {_controller: "AppBundle:Admin/Management:list"}
+    methods: POST
+
+admin_edit:
+    path: /edit
+    defaults: {_controller: "AppBundle:Admin/Management:edit"}
+    methods: POST
+admin_profile:
+    path: /profile
+    defaults: {_controller: "AppBundle:Admin/Management:profile"}
+    methods: POST

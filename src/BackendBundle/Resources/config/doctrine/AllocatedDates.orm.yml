@@ -1,0 +1,57 @@
+BackendBundle\Entity\AllocatedDates:
+    type: entity
+    table: allocated_dates
+    repositoryClass: BackendBundle\Repository\AllocatedDatesRepository
+    indexes:
+        fk_employee_allocation_date_range_employee_allocation1_idx:
+            columns:
+                - employee_allocation_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        date:
+            type: datetime
+            nullable: true
+        day:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        respond:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        cancelallocation:
+            type: boolean
+            nullable: true
+            column: cancelAllocation
+        accecptallocation:
+            type: boolean
+            nullable: true
+            column: accecptAllocation
+        requestsend:
+            type: boolean
+            nullable: true
+            column: requestSend
+    manyToOne:
+        employeeAllocation:
+            targetEntity: EmployeeAllocation
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                employee_allocation_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

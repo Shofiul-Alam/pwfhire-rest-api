@@ -1,0 +1,107 @@
+BackendBundle\Entity\Field:
+    type: entity
+    table: field
+    indexes:
+        fk_field_form1_idx:
+            columns:
+                - form_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        label:
+            type: string
+            nullable: true
+            length: 500
+            options:
+                fixed: false
+        type:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        classname:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: className
+        defaultValue:
+            type: string
+            nullable: true
+            length: 500
+            options:
+                fixed: false
+            column: default_value
+        required:
+            type: boolean
+            nullable: true
+        description:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        placeholder:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        name:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        access:
+            type: boolean
+            nullable: true
+        inline:
+            type: boolean
+            nullable: true
+        value:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        min:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        max:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+    manyToOne:
+        form:
+            targetEntity: Form
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            nullable: true
+            joinColumns:
+                form_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    oneToMany:
+        valueArr:
+            targetEntity: ValueArr
+            mappedBy: field
+            fetch: EAGER
+            cascade: ["persist"]
+    lifecycleCallbacks: {  }

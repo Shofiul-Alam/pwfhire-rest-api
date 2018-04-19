@@ -1,0 +1,48 @@
+BackendBundle\Entity\UserDeclearation:
+    type: entity
+    table: user_declearation
+    indexes:
+        fk_user_declearation_employee1_idx:
+            columns:
+                - employee_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        isIslander:
+            type: boolean
+            nullable: true
+            column: is_islander
+        isAboriginal:
+            type: boolean
+            nullable: true
+            column: is_aboriginal
+        hasDoneCrime:
+            type: boolean
+            nullable: true
+            column: has_done_crime
+        crimeDetails:
+            type: string
+            nullable: true
+            length: 500
+            options:
+                fixed: false
+            column: crime_details
+    oneToOne:
+        employee:
+            targetEntity: Employee
+            cascade: ["persist"]
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                employee_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

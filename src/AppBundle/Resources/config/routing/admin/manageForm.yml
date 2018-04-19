@@ -1,0 +1,24 @@
+manage_form_add:
+    path: /add
+    defaults: {_controller: "AppBundle:Admin/ManageForm:addForm"}
+    methods: POST
+manage_all_forms:
+    path: /forms
+    defaults: {_controller: "AppBundle:Admin/ManageForm:getAllForms"}
+    methods: POST
+manage_save_submission:
+    path: /save-data
+    defaults: {_controller: "AppBundle:Admin/ManageForm:saveFormData"}
+    methods: POST
+manage_all_submission:
+    path: /all-submissions
+    defaults: {_controller: "AppBundle:Admin/ManageForm:getAllSubmittedForms"}
+    methods: POST
+manage_get_form:
+    path: /get-form
+    defaults: {_controller: "AppBundle:Admin/ManageForm:getForm"}
+    methods: POST
+manage_form_update:
+    path: /update
+    defaults: {_controller: "AppBundle:Admin/ManageForm:updateForm"}
+    methods: POST

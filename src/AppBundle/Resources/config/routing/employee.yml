@@ -1,0 +1,23 @@
+employee_new:
+    path: /new
+    defaults: {_controller: "AppBundle:Staff/Employee:new"}
+    methods: POST
+
+employee_list:
+    path: /list
+    defaults: {_controller: "AppBundle:Staff/Employee:list"}
+    methods: POST
+
+employee_edit:
+    path: /edit
+    defaults: {_controller: "AppBundle:Staff/Employee:edit"}
+    methods: POST
+
+employee_addCompetency:
+    path: /add-skill-competency
+    defaults: {_controller: "AppBundle:Staff/Employee:addCompitency"}
+    methods: POST
+employee_single_employee_documents:
+    path: /employee-documents
+    defaults: {_controller: "AppBundle:Staff/Employee:getSkillCompetencyDocuments"}
+    methods: POST

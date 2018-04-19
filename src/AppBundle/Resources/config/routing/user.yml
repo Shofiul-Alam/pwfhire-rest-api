@@ -1,0 +1,13 @@
+user_new:
+    path: /new
+    defaults: {_controller: "AppBundle:Staff/User:new"}
+    methods: POST
+
+user_edit:
+    path: /edit
+    defaults: {_controller: "AppBundle:Staff/User:edit"}
+    methods: POST
+user_profile:
+    path: /profile
+    defaults: {_controller: "AppBundle:Staff/User:profile"}
+    methods: POST

@@ -1,0 +1,41 @@
+BackendBundle\Entity\AllocatedInduction:
+    type: entity
+    table: allocated_induction
+    indexes:
+        fk_allocated_induction_project1_idx:
+            columns:
+                - project_id
+        fk_allocated_induction_induction1_idx:
+            columns:
+                - induction_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        induction:
+            targetEntity: Induction
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                induction_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        project:
+            targetEntity: Project
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                project_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

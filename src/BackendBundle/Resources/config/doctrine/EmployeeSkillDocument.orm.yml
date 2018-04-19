@@ -1,0 +1,85 @@
+BackendBundle\Entity\EmployeeSkillDocument:
+    type: entity
+    table: employee_skill_document
+    indexes:
+        fk_employee_document_employee_skill_competency_document1_idx:
+            columns:
+                - employee_skill_competency_document_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        alt:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        width:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        height:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        path:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        fileName:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: file_name
+        mime:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        storageType:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: storage_type
+        size:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        uploadedDate:
+            type: datetime
+            nullable: true
+            column: uploaded_date
+    manyToOne:
+        employeeSkillCompetencyDocument:
+            nullable: true
+            targetEntity: EmployeeSkillCompetencyDocument
+            cascade: ['persist']
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                employee_skill_competency_document_id:
+                    referencedColumnName: id
+                    nullable: true
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

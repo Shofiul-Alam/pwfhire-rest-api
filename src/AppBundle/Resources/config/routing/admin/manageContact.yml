@@ -1,0 +1,14 @@
+manage_contact_add:
+    path: /add
+    defaults: {_controller: "AppBundle:Admin/ManageContact:new"}
+    methods: POST
+
+manage_contact_list:
+    path: /list
+    defaults: {_controller: "AppBundle:Admin/ManageContact:list"}
+    methods: POST
+
+manage_contact_edit:
+    path: /edit
+    defaults: {_controller: "AppBundle:Admin/ManageContact:edit"}
+    methods: POST

@@ -1,0 +1,59 @@
+BackendBundle\Entity\EmployeeSkillCompetencyDocument:
+    type: entity
+    table: employee_skill_competency_document
+    indexes:
+        fk_employee_skill_competency_document_skill_competency_list_idx:
+            columns:
+                - skill_competency_list_id
+        fk_employee_skill_competency_document_employee1_idx:
+            columns:
+                - employee_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        issueDate:
+            type: datetime
+            nullable: true
+            column: issue_date
+        expiryDate:
+            type: datetime
+            nullable: true
+            column: expiry_date
+        description:
+            type: string
+            nullable: true
+    manyToOne:
+        employee:
+            targetEntity: Employee
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                employee_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        skillCompetencyList:
+            targetEntity: SkillCompetencyList
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                skill_competency_list_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    oneToMany:
+        documents:
+            targetEntity: EmployeeSkillDocument
+            mappedBy: employeeSkillCompetencyDocument
+            fetch: LAZY
+            cascade: ["persist"]
+    lifecycleCallbacks: {  }

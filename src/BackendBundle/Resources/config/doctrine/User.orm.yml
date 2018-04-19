@@ -1,0 +1,85 @@
+BackendBundle\Entity\User:
+    type: entity
+    table: user
+    indexes:
+        fk_user_user_type_idx:
+            columns:
+                - user_type_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        email:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        password:
+            type: string
+            nullable: true
+            length: 500
+            options:
+                fixed: false
+        firstName:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: first_name
+        lastName:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: last_name
+        mobile:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+    manyToOne:
+        userType:
+            targetEntity: UserType
+            cascade: {  }
+            fetch: EAGER
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_type_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        userFormDatas:
+            targetEntity: UserFormData
+            cascade: {  }
+            fetch: LAZY
+            inversedBy: users
+            joinTable:
+                name: user_has_user_form_data
+                joinColumns:
+                    user_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    user_form_data_id:
+                        referencedColumnName: id
+    oneToOne:
+        userAvatar:
+            targetEntity: UserAvatar
+            mappedBy: user
+            cascade: ["persist"]
+    lifecycleCallbacks: {  }
+

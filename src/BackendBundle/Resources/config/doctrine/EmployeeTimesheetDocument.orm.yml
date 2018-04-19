@@ -1,0 +1,83 @@
+BackendBundle\Entity\EmployeeTimesheetDocument:
+    type: entity
+    table: employee_timesheet_document
+    indexes:
+        fk_employee_timesheet_document_time_sheet1_idx:
+            columns:
+                - time_sheet_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        alt:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        width:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        height:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        path:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        fileName:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: file_name
+        mime:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        storageType:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: storage_type
+        size:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        uploadedDate:
+            type: datetime
+            nullable: true
+            column: uploaded_date
+    manyToOne:
+        timeSheet:
+            targetEntity: TimeSheet
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                time_sheet_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

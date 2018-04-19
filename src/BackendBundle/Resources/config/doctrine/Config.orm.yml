@@ -1,0 +1,32 @@
+BackendBundle\Entity\Config:
+    type: entity
+    table: config
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        category:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        property:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        value:
+            type: string
+            nullable: true
+            length: 500
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

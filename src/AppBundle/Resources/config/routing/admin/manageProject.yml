@@ -1,0 +1,21 @@
+manage_project_add:
+    path: /add
+    defaults: {_controller: "AppBundle:Admin/ManageProject:new"}
+    methods: POST
+
+manage_project_list:
+    path: /list
+    defaults: {_controller: "AppBundle:Admin/ManageProject:list"}
+    methods: POST
+manage_project_edit:
+    path: /edit
+    defaults: {_controller: "AppBundle:Admin/ManageProject:edit"}
+    methods: POST
+manage_client_projects:
+    path: /client-projects
+    defaults: {_controller: "AppBundle:Admin/ManageProject:getClientProjects"}
+    methods: POST
+manage_archive_project:
+    path: /archive-project
+    defaults: {_controller: "AppBundle:Admin/ManageProject:archiveProject"}
+    methods: POST

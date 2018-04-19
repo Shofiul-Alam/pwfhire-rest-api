@@ -1,0 +1,83 @@
+BackendBundle\Entity\Admin:
+    type: entity
+    table: admin
+    indexes:
+        fk_admin_user_idx:
+            columns:
+                - user_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        dob:
+            type: datetime
+            nullable: true
+        abnNo:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: abn_no
+        mobileNo:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: mobile_no
+        accountPayableEmail:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: account_payable_email
+        accountPayableNo:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: account_payable_no
+        creditLimit:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: credit_limit
+        invoiceDueDate:
+            type: datetime
+            nullable: true
+            column: invoice_due_date
+        comments:
+            type: string
+            nullable: true
+            length: 500
+            options:
+                fixed: false
+        extra:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+    manyToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

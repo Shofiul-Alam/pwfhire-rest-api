@@ -1,0 +1,145 @@
+BackendBundle\Entity\Client:
+    type: entity
+    table: client
+    indexes:
+        fk_client_user1_idx:
+            columns:
+                - user_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        companyName:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: company_name
+        contactPerson:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: contact_person
+        companyAbnNo:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: company_abn_no
+        companyAcn:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: company_acn
+        companyTfn:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: company_tfn
+        landlineNo:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: landline_no
+        mobileNo:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: mobile_no
+        accountPayableNo:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: account_payable_no
+        accountPayableEmail:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: account_payable_email
+        accountPayablePersonDetails:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: account_payable_person_details
+        creditLimit:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: credit_limit
+        invoiceDueDate:
+            type: datetime
+            nullable: true
+            column: invoice_due_date
+        comments:
+            type: string
+            nullable: true
+            length: 500
+            options:
+                fixed: false
+        chargeRates:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: charge_rates
+        inductions:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        extra:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        archived:
+            type: boolean
+            nullable: true
+            column: archived
+    manyToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    oneToMany:
+        allocatedContact:
+            targetEntity: AllocatedContact
+            cascade: ["persist", "remove"]
+            mappedBy: client
+            fetch: EAGER;
+    lifecycleCallbacks: {  }

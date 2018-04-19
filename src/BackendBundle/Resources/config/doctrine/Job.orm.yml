@@ -1,0 +1,72 @@
+BackendBundle\Entity\Job:
+    type: entity
+    table: job
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        chargeRate:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: charge_rate
+        payscale:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        archived:
+            type: boolean
+            nullable: true
+            column: archived
+    manyToMany:
+        induction:
+            targetEntity: Induction
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: job
+            joinTable:
+                name: job_has_induction
+                joinColumns:
+                    -
+                        name: job_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: induction_id
+                        referencedColumnName: id
+            orderBy: null
+        skillCompetencyList:
+            targetEntity: SkillCompetencyList
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: job
+            joinTable:
+                name: job_has_skill_competency_list
+                joinColumns:
+                    -
+                        name: job_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: skill_competency_list_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

@@ -1,0 +1,76 @@
+BackendBundle\Entity\EmployeeAllocation:
+    type: entity
+    table: employee_allocation
+    repositoryClass: BackendBundle\Repository\EmployeeAllocationRepository
+    indexes:
+        fk_employee_allocation_employee1_idx:
+            columns:
+                - employee_id
+        fk_employee_allocation_task1_idx:
+            columns:
+                - task_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        cancelall:
+            type: boolean
+            nullable: true
+            column: cancelAll
+        acceptpartially:
+            type: boolean
+            nullable: true
+            column: acceptPartially
+        acceptall:
+            type: boolean
+            nullable: true
+            column: acceptAll
+        requestsendpartially:
+            type: boolean
+            nullable: true
+            column: requestSendPartially
+        requestsendall:
+            type: boolean
+            nullable: true
+            column: requestSendAll
+        sms:
+            type: string
+            nullable: true
+            length: 600
+            options:
+                fixed: false
+            column: sms
+    manyToOne:
+        employee:
+            targetEntity: Employee
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                employee_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        task:
+            targetEntity: Task
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                task_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    oneToMany:
+        allocatedDates:
+            targetEntity: AllocatedDates
+            cascade: ["persist", "remove"]
+            mappedBy: employeeAllocation
+            fetch: LAZY;
+    lifecycleCallbacks: {  }

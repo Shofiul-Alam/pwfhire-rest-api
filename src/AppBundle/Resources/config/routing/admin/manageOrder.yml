@@ -1,0 +1,22 @@
+manage_order_add:
+    path: /add
+    defaults: {_controller: "AppBundle:Admin/ManageOrder:new"}
+    methods: POST
+
+manage_order_list:
+    path: /list
+    defaults: {_controller: "AppBundle:Admin/ManageOrder:list"}
+    methods: POST
+
+manage_order_edit:
+    path: /edit
+    defaults: {_controller: "AppBundle:Admin/ManageOrder:edit"}
+    methods: POST
+manage_project_orders:
+    path: /project-orders
+    defaults: {_controller: "AppBundle:Admin/ManageOrder:getProjectOrders"}
+    methods: POST
+manage_archive_order:
+    path: /archive-order
+    defaults: {_controller: "AppBundle:Admin/ManageOrder:archiveOrder"}
+    methods: POST

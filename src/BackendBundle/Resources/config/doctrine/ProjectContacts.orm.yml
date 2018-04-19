@@ -1,0 +1,29 @@
+BackendBundle\Entity\ProjectContacts:
+    type: entity
+    table: project_contacts
+    id:
+        projectContactId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: project_contact_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        projectId:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: project_id
+        personsReferenceId:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: persons_reference_id
+    lifecycleCallbacks: {  }

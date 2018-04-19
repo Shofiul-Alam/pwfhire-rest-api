@@ -1,0 +1,51 @@
+manage_employee_add:
+    path: /add
+    defaults: {_controller: "AppBundle:Admin/ManageEmployee:new"}
+    methods: POST
+
+manage_employee_list:
+    path: /list
+    defaults: {_controller: "AppBundle:Admin/ManageEmployee:list"}
+    methods: POST
+
+manage_employee_edit:
+    path: /edit
+    defaults: {_controller: "AppBundle:Admin/ManageEmployee:edit"}
+    methods: POST
+manage_employee_add_skill_doc:
+    path: /add-skill-competency-doc
+    defaults: {_controller: "AppBundle:Admin/ManageEmployee:addSkillCompetency"}
+    methods: POST
+manage_employee_add_induction_doc:
+    path: /add-induction-doc
+    defaults: {_controller: "AppBundle:Admin/ManageEmployee:uploadInduction"}
+    methods: POST
+manage_employee_documents:
+    path: /employee-documents
+    defaults: {_controller: "AppBundle:Admin/ManageEmployee:employeeAllDocuments"}
+    methods: POST
+manage_employee_delete_doc:
+    path: /delete-employee-doc
+    defaults: {_controller: "AppBundle:Admin/ManageEmployee:deleteEmployeeDoc"}
+    methods: POST
+manage_employee_edit_doc:
+    path: /edit-employee-doc
+    defaults: {_controller: "AppBundle:Admin/ManageEmployee:editEmployeeDoc"}
+    methods: POST
+manage_employee_archive:
+    path: /archive-employee
+    defaults: {_controller: "AppBundle:Admin/ManageEmployee:archiveEmployee"}
+    methods: POST
+manage_employee_unarchive:
+    path: /unarchive-employee
+    defaults: {_controller: "AppBundle:Admin/ManageEmployee:unArchiveEmployee"}
+    methods: POST
+manage_employee_approve:
+    path: /approve-employee
+    defaults: {_controller: "AppBundle:Admin/ManageEmployee:approveEmployee"}
+    methods: POST
+manage_employee_update_document:
+    path: /update-employee-doc
+    defaults: {_controller: "AppBundle:Admin/ManageEmployee:updateEmployeeDoc"}
+    methods: POST
+

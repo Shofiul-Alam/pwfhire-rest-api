@@ -1,0 +1,22 @@
+BackendBundle\Entity\InvoicePayable:
+    type: entity
+    table: invoice_payable
+    id:
+        invoicePayableId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: invoice_payable_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        invoicePayablecol:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: invoice_payablecol
+    lifecycleCallbacks: {  }

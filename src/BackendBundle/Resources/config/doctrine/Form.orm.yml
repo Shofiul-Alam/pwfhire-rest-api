@@ -1,0 +1,27 @@
+BackendBundle\Entity\Form:
+    type: entity
+    table: form
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        formName:
+            type: string
+            nullable: true
+            length: 300
+            options:
+                fixed: false
+            column: form_name
+    oneToMany:
+        fieldsArr:
+            targetEntity: Field
+            cascade: ["persist"]
+            mappedBy: form
+            fetch: EAGER
+    lifecycleCallbacks: {  }

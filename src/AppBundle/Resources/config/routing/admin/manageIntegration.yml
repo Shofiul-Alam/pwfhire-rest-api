@@ -1,0 +1,12 @@
+manage_integration_twilio:
+    path: /integrate-twilio
+    defaults: {_controller: "AppBundle:Admin/Integration:integrateTwilio"}
+    methods: POST
+manage_twilio_config:
+    path: /twilio-config
+    defaults: {_controller: "AppBundle:Admin/Integration:getTwilioConfig"}
+    methods: POST
+manage_update_twilio_config:
+    path: /update-twilio-config
+    defaults: {_controller: "AppBundle:Admin/Integration:updateTwilioConfig"}
+    methods: POST
